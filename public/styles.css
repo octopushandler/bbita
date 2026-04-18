@@ -1,0 +1,239 @@
+:root {
+  --bbva-ink: #061a78;
+  --bbva-line: #26346f;
+  --bbva-field: #eaf1ff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.bbva-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--bbva-ink);
+  font-size: 42px;
+  line-height: 1.05;
+}
+
+.bbva-title--sm {
+  font-size: 33px;
+  line-height: 1.08;
+}
+
+.bbva-field {
+  height: 54px;
+  border: 2px solid var(--bbva-line);
+  border-radius: 12px;
+  padding: 0 18px;
+  font-size: 14px;
+  color: #0b1f55;
+  background: #fff;
+  outline: none;
+}
+
+.bbva-field--select {
+  padding-right: 52px;
+  appearance: none;
+}
+
+.bbva-field--filled {
+  background: #fff;
+}
+
+.bbva-field:focus {
+  box-shadow: 0 0 0 3px rgba(6, 26, 120, 0.12);
+}
+
+.bbva-field::placeholder {
+  color: rgba(11, 31, 85, 0.6);
+}
+
+.bbva-field--error {
+  border-color: #d93025;
+}
+
+.bbva-field--error:focus {
+  box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.15);
+}
+
+.bbva-error-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #d93025;
+}
+
+.bbva-eye-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 34px;
+  width: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.bbva-eye-btn:hover {
+  background: rgba(6, 26, 120, 0.06);
+}
+
+.bbva-field-wrap {
+  display: flex;
+  align-items: stretch;
+  border: 2px solid var(--bbva-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bbva-field);
+  height: 54px;
+}
+
+.bbva-field-wrap .bbva-field {
+  border: 0;
+  background: transparent;
+  height: 100%;
+  padding-left: 18px;
+  padding-right: 12px;
+}
+
+.bbva-icon-btn {
+  width: 56px;
+  border-left: 2px solid var(--bbva-line);
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+
+.bbva-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bbva-icon-btn[data-toggle-password] svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bbva-icon-btn:hover {
+  background: #f4f7ff;
+}
+
+.bbva-primary-btn {
+  height: 46px;
+  min-width: 112px;
+  border-radius: 10px;
+  background: var(--bbva-ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.bbva-outline-btn {
+  height: 46px;
+  min-width: 144px;
+  border-radius: 10px;
+  border: 2px solid var(--bbva-ink);
+  color: var(--bbva-ink);
+  font-weight: 700;
+  font-size: 14px;
+  background: transparent;
+}
+
+.bbva-nav-btn {
+  height: 40px;
+  width: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.bbva-nav-btn:hover {
+  background: rgba(6, 26, 120, 0.06);
+}
+
+.bbva-social {
+  height: 34px;
+  width: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 2px solid rgba(147, 223, 255, 0.55);
+  color: rgba(147, 223, 255, 0.95);
+}
+
+.bbva-social:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.bbva-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 246, 248, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+.bbva-loader.is-open {
+  display: flex;
+}
+
+.bbva-loader__panel {
+  width: min(420px, calc(100vw - 48px));
+  border-radius: 18px;
+  border: 1px solid #e9eef5;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(10, 35, 90, 0.12);
+  padding: 26px 24px;
+  text-align: center;
+}
+
+.bbva-loader__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bbva-loader__logo {
+  height: 30px;
+  width: auto;
+}
+
+.bbva-loader__spinner {
+  height: 34px;
+  width: 34px;
+  border-radius: 999px;
+  border: 3px solid rgba(6, 26, 120, 0.15);
+  border-top-color: #061a78;
+  animation: bbva-spin 0.9s linear infinite;
+}
+
+.bbva-loader__text {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #061a78;
+}
+
+.bbva-loader__subtext {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(11, 31, 85, 0.75);
+}
+
+@keyframes bbva-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

